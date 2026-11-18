@@ -955,8 +955,11 @@ button {
   border-radius: 9px;
   background: #e9dfd0;
   color: #514638;
-  font-size: 14px;
-  font-weight: 700;
+}
+
+.platform-mark svg {
+  width: 18px;
+  height: 18px;
 }
 
 .platform-copy {

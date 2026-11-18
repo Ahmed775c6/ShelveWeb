@@ -13,17 +13,52 @@ const platforms = [
   {
     name: 'Windows',
     detail: 'Windows 10 and later',
-    mark: 'W',
+    icon: 'windows',
     downloadUrl: 'https://github.com/Ahmed775c6/Shelve/releases/download/v0.1.0/Shleve.Setup.0.1.0.exe',
   },
-  { name: 'macOS', detail: 'Apple silicon and Intel', mark: '⌘' },
-  { name: 'Linux', detail: 'AppImage for desktop', mark: 'L' },
+  { name: 'macOS', detail: 'Apple silicon and Intel', icon: 'apple' },
+  { name: 'Linux', detail: 'AppImage for desktop', icon: 'linux' },
 ];
 
 function ArrowIcon() {
   return (
     <svg aria-hidden="true" viewBox="0 0 20 20" fill="none">
       <path d="M10 3.5v9m0 0 3.5-3.5M10 12.5 6.5 9M4.5 16h11" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+}
+
+function PlatformIcon({ icon }: { icon: string }) {
+  if (icon === 'windows') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M2 4.6 10.7 3v7.7H2V4.6Zm9.7-.9L22 2v8.7H11.7V3.7ZM2 11.7h8.7v7.7L2 17.8v-6.1Zm9.7 0H22V22l-10.3-1.6v-8.7Z" />
+      </svg>
+    );
+  }
+
+  if (icon === 'apple') {
+    return (
+      <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16.7 12.9c0-2.7 2.2-4 2.3-4.1-1.3-1.9-3.3-2.1-4-2.1-1.7-.2-3.3 1-4.2 1-.9 0-2.2-1-3.6-1-1.8 0-3.5 1.1-4.5 2.7-1.9 3.3-.5 8.2 1.4 10.9.9 1.3 2 2.8 3.4 2.7 1.4-.1 1.9-.9 3.6-.9 1.7 0 2.1.9 3.6.9 1.5 0 2.4-1.3 3.3-2.7 1-1.5 1.5-3 1.5-3.1-.1 0-3-.9-3-4.3ZM14.1 5c.8-1 1.4-2.3 1.2-3.6-1.2.1-2.6.8-3.4 1.8-.7.8-1.4 2.2-1.2 3.5 1.3.1 2.6-.7 3.4-1.7Z" />
+      </svg>
+    );
+  }
+
+  if (icon === 'linux') {
+    return <Image src="/linux3.png" alt="" width={24} height={24} />;
+  }
+
+  return (
+    <svg aria-hidden="true" viewBox="0 0 24 24" fill="currentColor">
+      <circle cx="12" cy="12.5" r="7.5" />
+      <circle cx="8.7" cy="6.5" r="2.2" />
+      <circle cx="15.3" cy="6.5" r="2.2" />
+      <circle cx="12" cy="3.8" r="2.4" />
+      <path d="M8.7 17.2c1.1 1 2.1 1.5 3.3 1.5s2.2-.5 3.3-1.5c-1.1-.7-2.2-1-3.3-1s-2.2.3-3.3 1Z" fill="#e9dfd0" />
+      <circle cx="9.7" cy="11.5" r=".7" fill="#514638" />
+      <circle cx="14.3" cy="11.5" r=".7" fill="#514638" />
+      <path d="M10.7 14h2.6l-.8 1.2h-1l-.8-1.2Z" fill="#514638" />
     </svg>
   );
 }
@@ -189,7 +224,7 @@ export default function Home() {
             <div className="platform-list">
               {platforms.map((platform) => (
                 <article className="platform-card" key={platform.name}>
-                  <span className="platform-mark">{platform.mark}</span>
+                  <span className="platform-mark"><PlatformIcon icon={platform.icon} /></span>
                   <span className="platform-copy"><strong>{platform.name}</strong><small>{platform.detail}</small></span>
                   {platform.downloadUrl ? (
                     <a
