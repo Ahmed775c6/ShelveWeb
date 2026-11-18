@@ -68,7 +68,7 @@ export default function Home() {
     <main className="landing-page">
       <div className="notice-bar">
         <span className="notice-dot" />
-        <span>A calmer corner for your reading life.</span>
+        <span>A calmer corner for your reading life ...</span>
         <a href="#download">
           Meet Shelve
           <span aria-hidden="true">↗</span>
