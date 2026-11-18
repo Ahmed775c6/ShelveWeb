@@ -980,7 +980,8 @@ button {
   font-size: 9px;
 }
 
-.platform-card button {
+.platform-card button,
+.platform-download {
   min-width: 86px;
   padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -989,8 +990,17 @@ button {
   color: #d1c9bd;
   font-size: 9px;
   font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+}
+
+.platform-card button {
   cursor: not-allowed;
   opacity: 0.8;
+}
+
+.platform-download {
+  cursor: pointer;
 }
 
 .download-note {

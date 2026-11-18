@@ -10,7 +10,12 @@ const previewBooks = [
 ];
 
 const platforms = [
-  { name: 'Windows', detail: 'Windows 10 and later', mark: 'W' },
+  {
+    name: 'Windows',
+    detail: 'Windows 10 and later',
+    mark: 'W',
+    downloadUrl: 'https://github.com/Ahmed775c6/Shelve/releases/download/v0.1.0/Shleve.Setup.0.1.0.exe',
+  },
   { name: 'macOS', detail: 'Apple silicon and Intel', mark: '⌘' },
   { name: 'Linux', detail: 'AppImage for desktop', mark: 'L' },
 ];
@@ -186,9 +191,20 @@ export default function Home() {
                 <article className="platform-card" key={platform.name}>
                   <span className="platform-mark">{platform.mark}</span>
                   <span className="platform-copy"><strong>{platform.name}</strong><small>{platform.detail}</small></span>
-                  <button type="button" disabled aria-label={`${platform.name} download coming soon`}>
-                    Soon
-                  </button>
+                  {platform.downloadUrl ? (
+                    <a
+                      className="platform-download"
+                      href={platform.downloadUrl}
+                      download
+                      aria-label={`Download Shelve for ${platform.name}`}
+                    >
+                      Download
+                    </a>
+                  ) : (
+                    <button type="button" disabled aria-label={`${platform.name} download coming soon`}>
+                      Soon
+                    </button>
+                  )}
                 </article>
               ))}
             </div>
