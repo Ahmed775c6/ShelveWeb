@@ -83,8 +83,11 @@ export default function Home() {
           </a>
           <nav aria-label="Main navigation">
             <a href="#features">Why Shelve 0.1.0</a>
+             <a href="/docs">Documentation</a>
             <a href="#preview">The app</a>
+                    
             <a className="nav-download" href="#download">Download</a>
+ 
           </nav>
         </header>
 
